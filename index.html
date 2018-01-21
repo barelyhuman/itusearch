@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Dipper</title>
 	<link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 	<div id="root"></div>
-	<script src="./src/index.js"></script>
+
+	<script>
+		window.fbAsyncInit = function () {
+			FB.init({
+				appId: '2235973286629559',
+				cookie: true,
+				xfbml: true,
+				version:'v2.11'
+			});
+
+			// Broadcast an event when FB object is ready
+			var fbInitEvent = new Event('FBObjectReady');
+			document.dispatchEvent(fbInitEvent);
+			  
+			FB.AppEvents.logPageView();
+
+		};
+
+
+
+		(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) { return; }
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<!-- Development Script -->
+	<!-- <script src="./src/index.js"></script> -->
+	<!-- Production Script -->
+	<script src="./dist/index.js"></script>
 </body>
+
 </html>

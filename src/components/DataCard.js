@@ -5,17 +5,22 @@ const DataCard = props => {
 		artistName,
 		trackName,
 		collectionName,
-		artworkUrl100
+		artworkUrl100,
+		trackPrice,
+		currency
 	} = props.trackDetails;
 	return (
 		<div className="datacard">
-			<div className="image">
-				<img src={artworkUrl100} alt={trackName} />
+			<div className="artwork">
+				<img src={artworkUrl100.replace("100x100", "600x600")} alt="" />
 			</div>
-			<div className="text-data">
-				<div className="dark">{trackName}</div>
-				<div className="lightdark">{artistName}</div>
-				<div className="lightgray">{collectionName}</div>
+			<div className="overlay">
+				<div>
+					<div className="bold">{trackName}</div>
+					<div className="regular">{collectionName}</div>
+				</div>
+				<div className="regular">{artistName}</div>
+				<div className="green-badge">{currency + " " + trackPrice}</div>
 			</div>
 		</div>
 	);
