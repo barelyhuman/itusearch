@@ -23,7 +23,7 @@ class App extends Component {
   changeDashboardView = view => {
     this.FB = window.FB;
     if (view === "logout") {
-      const a = confirm("are you sure you want to log out?");
+      const a = confirm("Are you sure you want to Logout?");
       if (a === true) {
         this.FB.logout();
         this.props.logOut();
